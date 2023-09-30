@@ -5,7 +5,7 @@ OUT?=OUT
 SRCS=$(wildcard src/*.c)
 OBJS=$(patsubst src/%.c,$(OUT)/%.o,$(SRCS))
 
-all: Lumina
+all: $(OUT) Lumina
 
 Lumina: $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
