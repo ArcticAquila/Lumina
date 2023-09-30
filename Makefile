@@ -1,15 +1,16 @@
 CC=gcc
 CFLAGS=-Wall
+OUT?=OUT
 
 SRCS=$(wildcard src/*.c)
-OBJS=$(patsubst src/%.c,%.o,$(SRCS))
+OBJS=$(patsubst src/%.c,$(OUT)/%.o,$(SRCS))
 
 all: Lumina
 
 Lumina: $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
 
-%.o: src/%.c
+$(OUT)/%.o: src/%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 # Move Lumina Binary Into /usr/bin/
