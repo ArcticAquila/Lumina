@@ -13,6 +13,9 @@ Lumina: $(OBJS)
 $(OUT)/%.o: src/%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
+$(OUT):
+	mkdir -p $(OUT)
+
 # Move Lumina Binary Into /usr/bin/
 install:
 	cp -v Lumina /usr/bin/
